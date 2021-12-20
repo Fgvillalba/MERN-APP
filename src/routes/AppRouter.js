@@ -13,6 +13,7 @@ import ProjectPage from "../pages/ProjectPage";
 import UsersPage from "../pages/admin/UsersPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import Layout from "../components/Layouts/Layout";
+import PrivateRoute from "./PrivateRoute";
 
 const AppRouter = () => {
 	return (
@@ -20,16 +21,8 @@ const AppRouter = () => {
 			<Router>
 				<Layout>
 					<Routes>
-						<Route
-							exact
-							path="/"
-							element={<HomePage />}
-						/>
-						<Route
-							exact
-							path="/login"
-							element={<LoginPage />}
-						/>
+						<Route exact path="/" element={<HomePage />} />
+						<Route exact path="/login" element={<LoginPage />} />
 						<Route
 							exact
 							path="/register"
@@ -38,28 +31,24 @@ const AppRouter = () => {
 						<Route
 							exact
 							path="/account"
-							element={<AccountPage />}
+							element={<PrivateRoute component={AccountPage} />}
 						/>
 						<Route
 							exact
 							path="/projects"
-							element={<ProjectsPage />}
+							element={<PrivateRoute component={ProjectsPage} />}
 						/>
 						<Route
 							exact
 							path="/project/:projectId"
-							element={<ProjectPage />}
+							element={<PrivateRoute component={ProjectPage} />}
 						/>
 						<Route
 							exact
 							path="/admin/users"
-							element={<UsersPage />}
+							element={<PrivateRoute component={UsersPage} />}
 						/>
-						<Route
-							exact
-							path="*"
-							element={<NotFoundPage />}
-						/>
+						<Route exact path="*" element={<NotFoundPage />} />
 					</Routes>
 				</Layout>
 			</Router>

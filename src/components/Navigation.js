@@ -4,11 +4,14 @@ import { NavLink } from "react-router-dom";
 const Navigation = () => {
 	return (
 		<Navbar collapseOnSelect expand="lg" variant="dark" bg="dark">
-			<Container>
+			<Container className="ms-2 me-0">
 				<Navbar.Brand as={NavLink} to="/">
 					Task-Manager
 				</Navbar.Brand>
-				<Navbar.Toggle aria-controls="responsive-navbar-nav" />
+				<Navbar.Toggle
+					aria-controls="responsive-navbar-nav"
+					className="toggle"
+				/>
 				<Navbar.Collapse id="responsive-navbar-nav">
 					<Nav className="me-auto ">
 						<Nav.Link as={NavLink} to="/projects">
@@ -22,7 +25,7 @@ const Navigation = () => {
 					</Nav>
 					<Nav>
 						<Nav.Link as={NavLink} to="/login">
-							Iniciar Sesion
+							Iniciar sesion
 						</Nav.Link>
 						<Nav.Link as={NavLink} to="/register">
 							Registrarse
